@@ -11,7 +11,7 @@ import jsonify
 
 app = Flask(__name__)
 app.secret_key = os.environ["key"]
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///tb.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL','sqllit:///tb.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 api = Api(app)
 
